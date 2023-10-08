@@ -13,7 +13,9 @@ function App() {
     if (storage) {
       setData(JSON.parse(storage))
     }
-  }, [])
+  }, []);
+
+  
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -34,8 +36,8 @@ function App() {
 
   return (
     <div className="app">
-      <form onSubmit={(event) => handleSubmit(event)}>
-        <input onChange={(event) => setSearch(event.target.value)} value={search} type="text" />
+      <form className="form" onSubmit={(event) => handleSubmit(event)}>
+        <input placeholder='Введиту страну...' className="input" onChange={(event) => setSearch(event.target.value)} value={search} type="text" />
         <Button name={'Отправить'} type={'send'} />
       </form>
 

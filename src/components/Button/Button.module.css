@@ -1,7 +1,33 @@
 .reset {
-  background-color: red;
+  background-color: lightcoral;
+  border: solid 3px transparent;
+  width: 100%;
+  margin: 20px 0;
+  padding: 10px;
+  font-size: 18px;
+  transition: linear .5s;
 }
 
 .send {
-  background-color: green;
+  background-color: lightgreen;
+  border: solid 1px transparent;
+  width: 100%;
+  margin: 20px 0 0;
+  padding: 10px;
+  font-size: 18px;
+  transition: linear .5s;
+}
+
+.send:hover {
+  cursor: pointer;
+  transform: scaleX(1.05);  
+  border: solid 3px lightgreen;
+  background-color: transparent;
+}
+
+.reset:hover {
+  cursor: pointer;
+  transform: scaleX(1.05);
+  border: solid 3px lightcoral;
+  background-color: transparent;
 }

@@ -1,23 +1,35 @@
 .table {
-  margin: 50px auto;
+  margin: 0 auto 50px;
 }
 
 .table-flex {
   display: flex;
   align-items: center;
   flex: 1 1 auto;
+  border: solid 1px black;
+  margin: 5px 0;
 }
 
 .table-item {
   padding: 10px;
-  border: solid 1px black;
 }
 
 .table-item:first-of-type {
   width: 50px;
 }
 
-.table-item:nth-of-type(2) {
-  flex-grow: 2;
+.table-item:last-of-type {
+  min-width: 70px;
 }
 
+.table-item:nth-of-type(2) {
+  flex-grow: 2;
+  min-width: 150px;
+}
+
+
+@media all and (max-width: 685px) {
+  .table-item:first-of-type {
+    width: 25px;
+  }
+}
