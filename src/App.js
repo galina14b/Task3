@@ -20,7 +20,7 @@ function App() {
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-      let result = await axios.get(`https://universities.hipolabs.com/search?country=${search.trim()}`);
+      const result = await axios.get(`https://universities.hipolabs.com/search?country=${search.trim()}`);
       setData(result.data)
       localStorage.setItem('table', JSON.stringify(result.data))
     } catch (error) {
