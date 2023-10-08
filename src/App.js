@@ -15,12 +15,12 @@ function App() {
     }
   }, []);
 
-  
+
 
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-      let result = await axios.get(`http://universities.hipolabs.com/search?country=${search.trim()}`);
+      let result = await axios.get(`http://universities.hipolabs.com/search?country=${search.trim()}/`);
       setData(result.data)
       localStorage.setItem('table', JSON.stringify(result.data))
     } catch (error) {
