@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './App.css';
 import Button from './components/Button/Button';
@@ -8,18 +8,28 @@ function App() {
   const [data, setData] = useState(null);
   const [search, setSearch] = useState('');
 
+  useEffect(() => {
+    let storage = localStorage.getItem('table');
+    if (storage) {
+      setData(JSON.parse(storage))
+    }
+  }, [])
+
   async function handleSubmit(event) {
     event.preventDefault();
     try {
       let result = await axios.get(`http://universities.hipolabs.com/search?country=${search.trim()}`);
       setData(result.data)
-      console.log(result.data)
+      localStorage.setItem('table', JSON.stringify(result.data))
     } catch (error) {
       console.log(error.message)
-    } finally {
-      setSearch('')
-    }
+    } 
+  }
 
+  function handleReset() {
+    setData(null);
+    setSearch('');
+    localStorage.removeItem('table');
   }
 
   return (
@@ -29,7 +39,7 @@ function App() {
         <Button name={'Отправить'} type={'send'} />
       </form>
 
-      {data && <Table data={ data } />}
+      {data && <Table data={ data } handleReset={handleReset} />}
     </div>
   );
 }

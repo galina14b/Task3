@@ -1,0 +1,23 @@
+.table {
+  margin: 50px auto;
+}
+
+.table-flex {
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+}
+
+.table-item {
+  padding: 10px;
+  border: solid 1px black;
+}
+
+.table-item:first-of-type {
+  width: 50px;
+}
+
+.table-item:nth-of-type(2) {
+  flex-grow: 2;
+}
+
