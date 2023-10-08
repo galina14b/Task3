@@ -20,7 +20,7 @@ function App() {
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-      let result = await axios.get(`http://universities.hipolabs.com/search?country=${search.trim()}/`);
+      let result = await axios.get(`http://universities.hipolabs.com/search?country=${search.trim()}`);
       setData(result.data)
       localStorage.setItem('table', JSON.stringify(result.data))
     } catch (error) {
@@ -41,7 +41,8 @@ function App() {
         <Button name={'Отправить'} type={'send'} />
       </form>
 
-      {data && <Table data={ data } handleReset={handleReset} />}
+      {data && <Table data={data} handleReset={handleReset} />}
+      {data && data.length< 1 && <h2>No University has found...</h2>}
     </div>
   );
 }
